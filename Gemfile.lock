@@ -3,7 +3,6 @@ GEM
   specs:
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    daemons (1.3.1)
     data_objects (0.10.17)
       addressable (~> 2.1)
     dm-core (1.2.1)
@@ -23,7 +22,6 @@ GEM
       data_objects (= 0.10.17)
     do_sqlite3 (0.10.17)
       data_objects (= 0.10.17)
-    eventmachine (1.2.7)
     ffi (1.12.2)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
@@ -50,11 +48,8 @@ GEM
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
     temple (0.8.2)
-    thin (1.7.2)
-      daemons (~> 1.0, >= 1.0.9)
-      eventmachine (~> 1.0, >= 1.0.4)
-      rack (>= 1, < 3)
     tilt (2.0.10)
+    webrick (1.6.0)
 
 PLATFORMS
   ruby
@@ -68,7 +63,7 @@ DEPENDENCIES
   sass
   sinatra
   slim
-  thin
+  webrick
 
 BUNDLED WITH
    2.1.2
