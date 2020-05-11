@@ -9,7 +9,7 @@ DataMapper.setup(:default,"sqlite3://#{Dir.pwd}/gambling.db")
 end
 
 configure :production do
-DataMapper.setup(:default,ENV('DATABASE_URL'))
+DataMapper.setup(:default,ENV['DATABASE_URL'])
 end
 
 class Person
