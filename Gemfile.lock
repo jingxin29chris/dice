@@ -60,6 +60,7 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-sqlite-adapter
   pg
+  rack
   sass
   sinatra
   slim
