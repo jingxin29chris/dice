@@ -75,9 +75,23 @@ get '/bet/logout/:username' do
  session[:login] = nil
  session[:name] = nil
  session[:message] = "you have successfully logout"
+if person.totalWin !=nil
  person.totalWin += (session[:win] || 0).to_i
+else
+ person.totalWin = 0 + (session[:win] || 0).to_i
+end
+
+if person.totalLoss !=nil
  person.totalLoss += (session[:lost] || 0).to_i
+else
+ person.totalLoss = (session[:lost] || 0).to_i
+end
+
+if person.totalProfit !=nil
  person.totalProfit += profit(:win, :lost)
+else
+ person.totalProfit = profit(:win, :lost)
+end
  person.save
  session[:win] = 0
  session[:lost] = 0
