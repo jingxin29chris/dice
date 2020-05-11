@@ -1,0 +1,95 @@
+
+<html>
+<head>
+<style>
+    body {
+        font: 14px Arial,sans-serif; 
+        margin: 0px;
+    }
+    .header {
+        padding: 10px 20px;
+        background: #acb3b9; 
+    }
+    .header h1 {
+        font-size: 24px;
+    }
+    .container {
+        width: 100%;
+        background: #f2f2f2; 
+    }
+    .nav, .section {
+        float: left; 
+        padding: 20px;
+        min-height: 170px;
+        box-sizing: border-box;
+    }
+    .nav {            
+        width: 20%;             
+        background: #d4d7dc;
+    }
+    .section {
+        width: 80%;
+    }
+    .nav ul {
+        list-style: none; 
+        line-height: 24px;
+        padding: 0px; 
+    }
+    .nav ul li a {
+        color: #333;
+    }    
+    .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+    .footer {
+        background: #acb3b9;            
+        text-align: center;
+        padding: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+        <div class="header">
+            <h1>Gambling Site </h1>
+            
+        </div>
+        <div class="wrapper clearfix">
+            <div class="nav">
+              
+                 <ul>
+                    <h3>The rule of Gambling </h3>
+                    <p>You would bet the money with a number from 1 to 6</p>
+                    <p>If the number is same with the random number,</p>
+                    <p>you win 10 times, Or you lose the money</p>
+                  </ul>
+                
+            </div>
+            <div class="section">
+                <h1> Welcome to our site</h1>
+                
+                 <% if session[:message] %>
+                 <h3><%= session[:message] %></h3>
+                 <% session[:message]= nil %>
+                 <% end %>
+                 
+               <h1>Please logon </h1>
+               <form action ="/login" method='post'>
+               username: <input type='text' name='username'></input><br>
+               password: <input type='text' name='password'></input><br>
+               <input type='submit' value='login'></input>
+               </form>
+
+            </div>
+        </div>
+        <div class="footer">
+            <p>copyright &copy; xjing@scu.edu</p>
+        </div>
+    </div>
+
+</body>
+<html>

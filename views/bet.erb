@@ -1,0 +1,18 @@
+<html>
+<head>
+</head>
+<body>
+
+<% if session[:message] %>
+<h3><%= session[:message] %></h3>
+<% session[:message]= nil %>
+<% end %>
+<h1>place your bet on dice number(1 to 6) </h1>
+<form action ="/bet/<%= @person.username %>" method='POST'>
+Bet Money on:<input type='text' name='money'></input><br>
+Num from 1-6:<input type='text' name='num'></input><br>
+
+<input type ="submit" value ="Bet"/>
+</form>
+</body>
+</html>
