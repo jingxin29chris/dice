@@ -1,7 +1,7 @@
 html {background-color: #ccc;}
 style.css
-<style>
-    body {
+
+   body {
         font: 14px Arial,sans-serif; 
         margin: 0px;
     }
@@ -25,6 +25,7 @@ style.css
     .nav {            
         width: 20%;             
         background: #d4d7dc;
+        
     }
     .section {
         width: 80%;
@@ -49,4 +50,3 @@ style.css
         text-align: center;
         padding: 5px;
     }
-</style>

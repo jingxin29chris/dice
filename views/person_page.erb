@@ -1,100 +1,40 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Gambing website Layout</title>
-<style>
-    body {
-        font: 14px Arial,sans-serif; 
-        margin: 0px;
-    }
-    .header {
-        padding: 10px 20px;
-        background: #acb3b9; 
-    }
-    .header h1 {
-        font-size: 24px;
-    }
-    .container {
-        width: 100%;
-        background: #f2f2f2; 
-    }
-    .nav, .section {
-        float: left; 
-        padding: 20px;
-        min-height: 170px;
-        box-sizing: border-box;
-    }
-    .nav {            
-        width: 20%;             
-        background: #d4d7dc;
-    }
-    .section {
-        width: 80%;
-    }
-    .nav ul {
-        list-style: none; 
-        line-height: 24px;
-        padding: 0px; 
-    }
-    .nav ul li a {
-        color: #333;
-    }    
-    .clearfix:after {
-        content: ".";
-        display: block;
-        height: 0;
-        clear: both;
-        visibility: hidden;
-    }
-    .footer {
-        background: #acb3b9;            
-        text-align: center;
-        padding: 5px;
-    }
-</style>
-</head>
-<body>
-<div class="container">
-        <div class="header">
-            <h1>Gambling Site</h1>
-            
-        </div>
-        <div class="wrapper clearfix">
+  <div class="wrapper clearfix">
+<!--- block to show the client total information --->
             <div class="nav">
               <h2> Name: <%= @person.username%></h2>
               <h2> Welcome to our site</h2>
                  <ul>
                     <p> Account Information </p>
-                    <p>total win by now: <%= @person.totalWin%> </p>
-                    <p>total loss by now: <%= @person.totalLoss%> </p>
-                    <p>total proft: <%= @person.totalProfit%></p>
+                    <p>Total win by now: <%= @person.totalWin || 0 %> </p>
+                    <p>Total loss by now: <%= @person.totalLoss || 0 %> </p>
+                    <p>Total proft: <%= @person.totalProfit || 0 %></p>
                   </ul>
                 
             </div>
+<!--- block to show the client current login information --->
             <div class="section">
                 
                  <% if session[:message] %>
                  <h3><%= session[:message] %></h3>
                  <% session[:message]= nil %>
                  <% end %>
-                 <%= erb :bet %>
 
-               <ul>
-                  <p>total win: <%= (session[:win] || 0).to_i%></p>
-                  <p>total loss: <%= (session[:lost] || 0).to_i %> </p>
-                  <p>total profit: <%= profit(:win, :lost) %> </p>
+                <h1>Place your bet on dice number 1 to 6, Win 10 times</h1>
+                <form action ="/bet/<%= @person.username %>" method='POST'>
+                 Bet Money on:<input type='text' name='money'></input><br>
+                 Num from 1-6:<input type='text' name='num'></input><br>
+                <input type ="submit" value ="Bet"/></input>
+                </form>
+
+                 <ul>
+                  <p>Total win: <%= (session[:win] || 0).to_i%>    
+                    Total loss: <%= (session[:lost] || 0).to_i %>     
+                    Total profit: <%= profit(:win, :lost) %> </p>
                 </ul>
 
                 <p><a href ="/bet/logout/<%= @person.username%>"> logout</a></p>
             </div>
         </div>
-        <div class="footer">
-            <p>copyright &copy; xjing@scu.edu</p>
-        </div>
-    </div>
-</body>
-</html>
 
 
 
